@@ -23,7 +23,7 @@ app.get('/index', (req, res, next) => {
 
 // mongoDbに接続
 
-const MongoClient = require('mongodb').MongoClient;
+/* const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://tokimatu:@nnayc001@cluster0-d8low.gcp.mongodb.net/test?retryWrites=true&w=majority";
 const dbName = 'dqx';
 const connectOption = {
@@ -66,7 +66,7 @@ MongoClient.connect(uri, connectOption, (err, client) => {
         }
         client.close();
     });
-});
+});*/
 
 class TLIST {
     constructor(id, no, type, hourTime, minuteTime) {
