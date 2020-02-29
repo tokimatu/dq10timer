@@ -1,11 +1,11 @@
 let socket = io();
 let tbList = document.getElementById("tableList");
 let audioElem;
-console.log(tbList.rows[1].cells[0]);
+console.log(tbList.childNodes[1]);
 tbList.rows[1].cells[0].innerText = "1";
 for (let i = 1; i < 20; i++) {
-    tbList.appendChild(tbList.rows[1].cloneNode(true));
-    tbList.lastChild.cells[0].innerText = i + 1;
+    tbList.childNodes[1].appendChild(tbList.rows[1].cloneNode(true));
+    tbList.childNodes[1].lastChild.cells[0].innerText = i + 1;
 }
 
 // クラスの定義
@@ -63,7 +63,6 @@ window.onload = () => {
         let hour = ('00' + now.getHours()).slice(-2);
         let minute = ('00' + now.getMinutes()).slice(-2);
         let seconds = hour * 3600 + minute * 60;
-
 
         if (isNaN(serverNo) || serverNo == "" || serverNo < 1 || serverNo > 40) {
             console.error("サーバー番号が不正です。");

@@ -9,68 +9,74 @@
     <link rel="stylesheet" type="text/css" href="htdocs/index.css">
     <link rel="stylesheet" href="htdocs/bootstrap.css">
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
     <title>輝晶獣</title>
 </head>
 
 <body>
     <main>
-        <p>輝晶獣状態確認一覧</p>
-        <form action="#" name="form1" class="form-inline">
-            サーバー番号：
-            <input type="text" class="form-control" name="serverNo"> 種類： <select class="form-control" name="type">
-                <option value=""></option>
-                <option value="黄">黄</option>
-                <option value="青">青</option>
-                <option value="赤">赤</option>
-                <option value="玉">玉</option>
-                <option value="土">土</option>
-                <option value="竜">竜</option>
-                </select> 場所：
-            <select class="form-control" name="area">
+        <div id="conteiner">
+
+            <p>輝晶獣状態確認一覧</p>
+
+            <form action="#" name="form1" class="form-inline formA">
+                serverNo： <input type="text" class="form-control" name="serverNo"> 種類： <select class="form-control" name="type">
                         <option value=""></option>
-                        <option value="1">幻</option>
-                        <option value="3">山</option>
-                        <option value="5">砂</option>
-                    </select>
-            </場所：>
-            <input type="button" class="btn btn-primary mb-2 btnA" value="送信" id="updateBtn">
-        </form>
-        <div id="timeList">
-            <table id="tableList" class="table table-dark">
-                <tr>
-                    <th class="C">鯖</th>
-                    <th class="A">幻</th>
-                    <th class="B">時間</th>
-                    <th class="A">山</th>
-                    <th class="B" h>時間</th>
-                    <th class="A">砂</th>
-                    <th class="B">時間</th>
-                    <th class="C">鯖</th>
-                    <th class="A">幻</th>
-                    <th class="B">時間</th>
-                    <th class="A">山</th>
-                    <th class="B">時間</th>
-                    <th class="A">砂</th>
-                    <th class="A">時間</th>
-                </tr>
-                <tr>
-                    <th class="C"></th>
-                    <td class="A buttonSet"></td>
-                    <td class="B buttonSet"></td>
-                    <td class="A buttonSet"></td>
-                    <td class="B buttonSet"></td>
-                    <td class="A buttonSet"></td>
-                    <td class="B buttonSet"></td>
-                    <th class="C"></th>
-                    <td class="A buttonSet"></td>
-                    <td class="B buttonSet"></td>
-                    <td class="A buttonSet"></td>
-                    <td class="B buttonSet"></td>
-                    <td class="A buttonSet"></td>
-                    <td class="B buttonSet"></td>
-                </tr>
-            </table>
+                        <option value="黄">黄</option>
+                        <option value="青">青</option>
+                        <option value="赤">赤</option>
+                        <option value="玉">玉</option>
+                        <option value="土">土</option>
+                        <option value="竜">竜</option>
+                        </select> 場所：
+                <select class="form-control" name="area">
+                            <option value=""></option>
+                            <option value="1">幻</option>
+                            <option value="3">山</option>
+                            <option value="5">砂</option>
+                        </select>
+                </場所：>
+                <input type="button" class="btn btn-primary mb-2 btnA" value="送信" id="updateBtn">
+            </form>
+            <div id="timeList">
+                <table id="tableList" class="table table-dark table-bordered table-hover">
+                    <tr>
+                        <th class="C">鯖</th>
+                        <th class="C">幻</th>
+                        <th class="C">時間</th>
+                        <th class="C">山</th>
+                        <th class="C" h>時間</th>
+                        <th class="C">砂</th>
+                        <th class="C">時間</th>
+                        <th class="C">鯖</th>
+                        <th class="C">幻</th>
+                        <th class="C">時間</th>
+                        <th class="C">山</th>
+                        <th class="C">時間</th>
+                        <th class="C">砂</th>
+                        <th class="C">時間</th>
+                    </tr>
+                    <tr>
+                        <th class="C"></th>
+                        <td class="A buttonSet"></td>
+                        <td class="B buttonSet"></td>
+                        <td class="A buttonSet"></td>
+                        <td class="B buttonSet"></td>
+                        <td class="A buttonSet"></td>
+                        <td class="B buttonSet"></td>
+                        <th class="C"></th>
+                        <td class="A buttonSet"></td>
+                        <td class="B buttonSet"></td>
+                        <td class="A buttonSet"></td>
+                        <td class="B buttonSet"></td>
+                        <td class="A buttonSet"></td>
+                        <td class="B buttonSet"></td>
+                    </tr>
+                </table>
+            </div>
+
         </div>
+
 
     </main>
 </body>

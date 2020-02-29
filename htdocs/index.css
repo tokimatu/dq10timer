@@ -14,3 +14,48 @@
 .C {
     text-align: center;
 }
+
+input[type="text"] {
+    font-size: 100%;
+}
+
+select {
+    font-size: 100%;
+}
+
+@media only screen and (max-device-width:600px) {
+    #conteiner {
+        margin: 0;
+        max-width: max-content;
+    }
+    .formA {
+        width: max-content;
+        min-width: max-content;
+    }
+    #timeList {
+        min-width: max-content;
+        ;
+    }
+    input[type="text"] {
+        font-size: 100%;
+        height: auto;
+    }
+    select {
+        font-size: 100%;
+        height: auto;
+    }
+    .A {
+        text-align: center;
+    }
+    .B {
+        text-align: center;
+    }
+    .C {
+        text-align: center;
+    }
+    .btnA {
+        margin: auto;
+        width: 50%;
+        margin-top: 20px;
+    }
+}
