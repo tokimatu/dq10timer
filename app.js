@@ -93,9 +93,9 @@ io.sockets.on('connection', (socket) => {
     let id = socket.id;
     io.to(id).emit('init', { a: TimeListG, b: TimeListY, c: TimeListS });
 
-    socket.on('setTime', (data) => {
+    socket.on('setTimeType', (data) => {
 
-        socket.broadcast.emit('allSetTime', data);
+        io.emit('allSetTime', data);
         if (data.area == 1) {
             console.log("幻");
             TimeListG[data.serverNo - 1].no = data.serverNo;

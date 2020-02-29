@@ -3,7 +3,11 @@
 
 <head>
     <script type="module" src="/htdocs/index.js"></script>
+    <script src="htdocs/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="htdocs/bootstrap.bundle.js"></script>
     <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" type="text/css" href="htdocs/index.css">
+    <link rel="stylesheet" href="htdocs/bootstrap.css">
     <meta charset="utf-8" />
     <title>輝晶獣</title>
 </head>
@@ -11,54 +15,63 @@
 <body>
     <main>
         <p>輝晶獣状態確認一覧</p>
-        <div id="timeList">
-            <table id="tableList">
-                <tr>
-                    <th>鯖</th>
-                    <th>幻</th>
-                    <th>時間</th>
-                    <th>山</th>
-                    <th>時間</th>
-                    <th>砂</th>
-                    <th>時間</th>
-                </tr>
-                <tr>
-                    <td><input type="text" size="2" maxlength="100" name="list1" value=""></td>
-                    <td><input type="text" size="2" maxlength="100" name="list2" value=""></td>
-                    <td><input type="text" size="10" maxlength="100" name="list3" value=""></td>
-                    <td><input type="text" size="2" maxlength="100" name="list4" value=""></td>
-                    <td><input type="text" size="10" maxlength="100" name="list5" value=""></td>
-                    <td><input type="text" size="2" maxlength="100" name="list6" value=""></td>
-                    <td><input type="text" size="10" maxlength="100" name="list7" value=""></td>
-                </tr>
-            </table>
-        </div>
-        <form action="#" name="form1">
-            <p>サーバー番号：<br>
-                <input type="text" name="serverNo"></p>
-            <p>種類：<br>
-                <select name="type">
-                    <option value=""></option>
-                    <option value="黄">黄</option>
-                    <option value="青">青</option>
-                    <option value="赤">赤</option>
-                    <option value="玉">玉</option>
-                    <option value="土">土</option>
-                    <option value="竜">竜</option>
-                </select>
-                <p>場所：<br>
-                    <select name="area">
+        <form action="#" name="form1" class="form-inline">
+            サーバー番号：
+            <input type="text" class="form-control" name="serverNo"> 種類： <select class="form-control" name="type">
+                <option value=""></option>
+                <option value="黄">黄</option>
+                <option value="青">青</option>
+                <option value="赤">赤</option>
+                <option value="玉">玉</option>
+                <option value="土">土</option>
+                <option value="竜">竜</option>
+                </select> 場所：
+            <select class="form-control" name="area">
                         <option value=""></option>
                         <option value="1">幻</option>
                         <option value="3">山</option>
                         <option value="5">砂</option>
                     </select>
-                </p>
-            </p>
-            <p>
-                <input type="button" value="送信" id="updateBtn">
-            </p>
+            </場所：>
+            <input type="button" class="btn btn-primary mb-2 btnA" value="送信" id="updateBtn">
         </form>
+        <div id="timeList">
+            <table id="tableList" class="table table-dark">
+                <tr>
+                    <th class="C">鯖</th>
+                    <th class="A">幻</th>
+                    <th class="B">時間</th>
+                    <th class="A">山</th>
+                    <th class="B" h>時間</th>
+                    <th class="A">砂</th>
+                    <th class="B">時間</th>
+                    <th class="C">鯖</th>
+                    <th class="A">幻</th>
+                    <th class="B">時間</th>
+                    <th class="A">山</th>
+                    <th class="B">時間</th>
+                    <th class="A">砂</th>
+                    <th class="A">時間</th>
+                </tr>
+                <tr>
+                    <th class="C"></th>
+                    <td class="A buttonSet"></td>
+                    <td class="B buttonSet"></td>
+                    <td class="A buttonSet"></td>
+                    <td class="B buttonSet"></td>
+                    <td class="A buttonSet"></td>
+                    <td class="B buttonSet"></td>
+                    <th class="C"></th>
+                    <td class="A buttonSet"></td>
+                    <td class="B buttonSet"></td>
+                    <td class="A buttonSet"></td>
+                    <td class="B buttonSet"></td>
+                    <td class="A buttonSet"></td>
+                    <td class="B buttonSet"></td>
+                </tr>
+            </table>
+        </div>
+
     </main>
 </body>
 
