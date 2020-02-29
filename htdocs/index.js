@@ -49,6 +49,11 @@ for (let i = 0; i < 20; i++) {
 window.onload = () => {
     document.form1.serverNo.focus();
 
+    //socket.justify-content-around
+    socket.emit('join', {
+        roomid: 'namitatsu'
+    });
+
     document.getElementById("updateBtn").addEventListener("click", () => {
         let serverNo = hankaku2Zenkaku(document.form1.serverNo.value);
         document.form1.serverNo.value = "";
@@ -106,6 +111,7 @@ window.onload = () => {
                     e.target.nextElementSibling.innerText + "を削除しますか？");
                 if (res == true) {
                     e.target.innerText = "";
+                    e.target.nextElementSibling.style.backgroundColor = "";
                     e.target.nextElementSibling.innerText = ":";
                     socket.emit('setTimeType', {
                         serverNo: serverNo,
@@ -140,6 +146,7 @@ window.onload = () => {
                 if (res == true) {
                     e.target.innerText = ":";
                     e.target.previousElementSibling.innerText = "";
+                    e.target.previousElementSibling.style.backgroundColor = "";
                     socket.emit('setTimeType', {
                         serverNo: serverNo,
                         type: "",
@@ -217,8 +224,6 @@ window.onload = () => {
                                 break;
                         }
                     }
-
-
                 }
             }
         }
@@ -240,7 +245,7 @@ socket.on('init', (data) => {
         tbList.rows[i + 1].cells[2].innerText = TimeListG[i].hourTime + ':' + TimeListG[i].minuteTime;
         tbList.rows[i + 1].cells[3].innerText = TimeListY[i].type;
         tbList.rows[i + 1].cells[4].innerText = TimeListY[i].hourTime + ':' + TimeListY[i].minuteTime;
-        tbList.rows[i + 1].cells[5].innerText = TimeListS[i].type;;
+        tbList.rows[i + 1].cells[5].innerText = TimeListS[i].type;
         tbList.rows[i + 1].cells[6].innerText = TimeListS[i].hourTime + ':' + TimeListS[i].minuteTime;
         tbList.rows[i + 1].cells[7].innerText = TimeListG[i + 20].no;
         tbList.rows[i + 1].cells[8].innerText = TimeListG[i + 20].type;
@@ -253,12 +258,18 @@ socket.on('init', (data) => {
 });
 
 socket.on('allSetTime', (data) => {
+    console.log(data);
+
     let serverNo = data.serverNo;
+    let color = setColor(data.type);
+
     if (serverNo < 21) {
         tbList.rows[serverNo].cells[Number(data.area)].innerText = data.type;
+        tbList.rows[serverNo].cells[Number(data.area)].style.backgroundColor = color;
         tbList.rows[serverNo].cells[Number(data.area) + 1].innerText = data.hourTime + ':' + data.minuteTime;
     } else {
         tbList.rows[serverNo - 20].cells[Number(data.area) + 7].innerText = data.type;
+        tbList.rows[serverNo - 20].cells[Number(data.area)].style.backgroundColor = color;
         tbList.rows[serverNo - 20].cells[Number(data.area) + 8].innerText = data.hourTime + ':' + data.minuteTime;
     }
 
@@ -275,4 +286,25 @@ let PlaySound = () => {
     audioElem = new Audio();
     audioElem.src = "htdocs/1.wav";
     audioElem.play();
+}
+
+let setColor = (data) => {
+    let color;
+    switch (data) {
+        case '黄':
+            color = 'yellow';
+            break;
+        case '青':
+            color = 'blue';
+            break;
+        case '赤':
+            color = 'red';
+            break;
+        case '玉':
+        case '土':
+        case '竜':
+            color = 'green';
+            break;
+    }
+    return color;
 }

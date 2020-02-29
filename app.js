@@ -89,13 +89,20 @@ for (let i = 0; i < 40; i++) {
 }
 
 
-io.sockets.on('connection', (socket) => {
+let v = io.sockets.on('connection', (socket) => {
     let id = socket.id;
-    io.to(id).emit('init', { a: TimeListG, b: TimeListY, c: TimeListS });
+    console.log(v);
+    console.log("**********************************************************************　");
+    console.log(io);
+
+    socket.on('join', (data) => {
+        socket.join(data.roomid);
+        console.log(data.roomid);
+        io.to(id).emit('init', { a: TimeListG, b: TimeListY, c: TimeListS });
+    });
 
     socket.on('setTimeType', (data) => {
-
-        io.emit('allSetTime', data);
+        v.to('namitatsu').emit('allSetTime', data);
         if (data.area == 1) {
             console.log("幻");
             TimeListG[data.serverNo - 1].no = data.serverNo;
